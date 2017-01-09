@@ -1,5 +1,5 @@
 "use strict";
-function RegisterRoutes(app) {
+function registerRoutes(app) {
+    // in here
 }
-exports.RegisterRoutes = RegisterRoutes;
-//# sourceMappingURL=default.route.js.map
+exports.registerRoutes = registerRoutes;

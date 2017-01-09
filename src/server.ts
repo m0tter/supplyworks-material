@@ -7,7 +7,7 @@ let app = express();
 
 app.use(morgan('dev'));
 
-router.RegisterRoutes(app);
+router.registerRoutes(app);
 
 app.use(express.static(__dirname + '/client'))
 
