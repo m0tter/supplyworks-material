@@ -30,10 +30,15 @@ gulp.task('ts.compile', function() {
   return tsResult.js.pipe(gulp.dest('./dist'));  
 });
 
-gulp.task('copy.nodemodules', function() {
-  gulp.src('./node_modules/**/*')
-    .pipe(gulp.dest('./dist/node_modules'));
-})
+gulp.task('copy.servermodules', function() {
+  gulp.src('src/server/node_modules/**/*')
+    .pipe(gulp.dest('dist/server/node_modules'));
+});
+
+gulp.task('copy.clientmodules', function() {
+  gulp.src('src/client/node_modules/**/*')
+    .pipe(gulp.dest('dist/client/node_modules'));
+});
 
 gulp.task('watch', ['ts.compile', 'jade.compile'], function() {
   gulp.watch('src/**/*.ts', ['ts.compile']);

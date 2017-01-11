@@ -7,7 +7,7 @@ app.use(morgan('dev'));
 router.registerRoutes(app);
 app.use(express.static(__dirname + '/client'));
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + 'client/index.html');
+    res.sendFile(__dirname + '/client/index.html');
 });
 app.listen(3000, function () {
     console.log('Magic is happening on port 3000');
