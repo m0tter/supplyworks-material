@@ -9,9 +9,9 @@ app.use(morgan('dev'));
 
 router.registerRoutes(app);
 
-app.use(express.static(__dirname + '/client'))
+app.use(express.static(__dirname + '/client'));
 
-app.get('/', (req:express.Request, res:express.Response) => {
+app.get('/|/dashboard', (req:express.Request, res:express.Response) => {
     res.sendFile(__dirname + '/client/index.html');
 });
 

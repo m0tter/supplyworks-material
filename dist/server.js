@@ -6,7 +6,7 @@ var app = express();
 app.use(morgan('dev'));
 router.registerRoutes(app);
 app.use(express.static(__dirname + '/client'));
-app.get('/', function (req, res) {
+app.get('/|/dashboard', function (req, res) {
     res.sendFile(__dirname + '/client/index.html');
 });
 app.listen(3000, function () {
