@@ -5,6 +5,7 @@ import { MaterialModule } from '@angular/material';
 import { routing }        from './app.routing';
 import { AppComponent }   from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserComponent }  from './config/user.component';
 
 @NgModule({
   imports: [
@@ -14,7 +15,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserComponent
   ],
   bootstrap: [ AppComponent ]
 })
