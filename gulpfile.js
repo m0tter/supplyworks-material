@@ -5,7 +5,9 @@ var ts      = require('gulp-typescript');
 
 var tsProject = ts.createProject('./tsconfig.json');
 var node;
+var mongod;
 var spawn = require('child_process').spawn;
+var exec = require('child_process').exec;
 
 gulp.task('clean.all', function(cb) {
   del.sync(['./dist']);
@@ -55,6 +57,14 @@ gulp.task('node.start', function() {
     if (code === 8) {
       gulp.log('Error detected, waiting for changes...');
     }
+  });
+});
+
+gulp.task('mongod.start', function(cb) {
+  mongod = exec('mongod --dbpath ./data', function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    cb();
   });
 });
 
