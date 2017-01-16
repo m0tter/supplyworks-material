@@ -67,7 +67,7 @@ gulp.task('mongod.start', function() {
   });
 });
 
-gulp.task('serve', ['ts.compile', 'jade.compile', 'node.start', 'copy.css', 'mongod.start'], function() {
+gulp.task('serve', ['ts.compile', 'jade.compile', 'node.start', 'copy.css'], function() {
   gulp.watch('**/*.ts', {cwd: 'src'}, ['ts.compile']);
   gulp.watch('client/**/*.jade', {cwd: 'src'}, ['jade.compile']);
   gulp.watch('client/**/*.css', {cwd: 'src'}, ['copy.css']);
