@@ -1,5 +1,6 @@
 "use strict";
+var userAPI = require("../api/school/user.api");
 function registerRoutes(app) {
-    // in here
+    app.use('/api/school/users', userAPI.apiController());
 }
 exports.registerRoutes = registerRoutes;

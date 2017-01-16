@@ -1,0 +1,1 @@
+export var connectionStringLocalDB: string = 'mongodb://localhost:27017/db';

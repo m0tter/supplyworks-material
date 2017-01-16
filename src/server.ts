@@ -1,9 +1,13 @@
-import * as express from 'express';
-import * as morgan from  'morgan';
+import * as express     from 'express';
+import * as morgan      from 'morgan';
+import * as mongoose    from 'mongoose';
 
-import * as router from './server/routes/default.route';
+import * as router      from './server/routes/default.route';
+import * as dbConfig    from './server/config/db.config';
 
 let app = express();
+
+mongoose.connect(dbConfig.connectionStringLocalDB);
 
 app.use(morgan('dev'));
 

@@ -60,19 +60,18 @@ gulp.task('node.start', function() {
   });
 });
 
-gulp.task('mongod.start', function(cb) {
+gulp.task('mongod.start', function() {
   mongod = exec('mongod --dbpath ./data', function(err, stdout, stderr) {
     console.log(stdout);
     console.log(stderr);
-    cb();
   });
 });
 
-gulp.task('serve', ['ts.compile', 'jade.compile', 'node.start', 'copy.css'], function() {
-  gulp.watch('src/**/*.ts', {cwd: './'}, ['ts.compile']);
-  gulp.watch('src/client/**/*.jade', {cwd: './'}, ['jade.compile']);
-  gulp.watch('src/client/**/*.css', {cwd: './'}, ['copy.css']);
-  gulp.watch(['dist/server.js', 'dist/server/**/*.js'], {cwd: './'}, ['node.start']);
+gulp.task('serve', ['ts.compile', 'jade.compile', 'node.start', 'copy.css', 'mongod.start'], function() {
+  gulp.watch('**/*.ts', {cwd: 'src'}, ['ts.compile']);
+  gulp.watch('client/**/*.jade', {cwd: 'src'}, ['jade.compile']);
+  gulp.watch('client/**/*.css', {cwd: 'src'}, ['copy.css']);
+  gulp.watch(['server.js', 'server/**/*.js'], {cwd: 'dist'}, ['node.start']);
 });
 
 gulp.task('build.dist', ['clean.all', 'copy.servermodules', 'copy.clientmodules', 'ts.compile', 'jade.compile']);

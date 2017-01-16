@@ -1,6 +1,8 @@
-import * as e from 'express';
+import { Application } from 'express';
 import * as path from 'path';
 
-export function registerRoutes(app:e.Application):void {
-    // in here
+import * as userAPI from '../api/school/user.api';
+
+export function registerRoutes(app: Application):void {
+    app.use( '/api/school/users', userAPI.apiController() );
 }

@@ -4,6 +4,9 @@
 # Distribution directory
 dist
 
+# Mongo db
+data
+
 ### Node ###
 # Logs
 logs
