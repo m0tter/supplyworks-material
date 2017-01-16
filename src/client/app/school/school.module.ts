@@ -9,7 +9,7 @@ import { UserService }        from './config/user.service';
 
 import { AppComponent }       from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent }      from './config/user.component';
+import { UserComponent, NewUserComponent } from './config/user.component';
 
 @NgModule({
   imports: [
@@ -21,11 +21,13 @@ import { UserComponent }      from './config/user.component';
   declarations: [
     AppComponent,
     DashboardComponent,
-    UserComponent
+    UserComponent,
+    NewUserComponent
   ],
   providers: [
     UserService
   ],
-  bootstrap: [ AppComponent ]
+  bootstrap: [ AppComponent ],
+  entryComponents: [ NewUserComponent ]
 })
 export class SchoolModule { }
