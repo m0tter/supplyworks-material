@@ -19,6 +19,13 @@ export class UserService {
       .catch(err => this.errorHandler(err));
   }
 
+  createUser(newuser: Teacher): Promise<Teacher> {
+    return this.http.post(this.APIUrl + '/staff', newuser)
+      .toPromise()
+      .then(resp => resp.json().data as Teacher)
+      .catch(err => this.errorHandler(err))
+  }
+
   private errorHandler(err: any): Promise<any> {
     console.error('Error in UserService: ', err);
     return Promise.reject(err.message || err);

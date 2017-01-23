@@ -2,6 +2,7 @@ import { NgModule }       from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { MaterialModule } from '@angular/material';
 import { HttpModule }     from '@angular/http';
+import { FormsModule }    from '@angular/forms';
 
 import { AppRoutingModule }   from './app.routing';
 
@@ -16,6 +17,7 @@ import { UserComponent, NewUserComponent } from './config/user.component';
     MaterialModule.forRoot(),
     BrowserModule,
     HttpModule,
+    FormsModule,
     AppRoutingModule
   ],
   declarations: [

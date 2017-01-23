@@ -1,6 +1,25 @@
 h2 New User
 md-dialog-content
-  label
-    input(#dialogInput)
+  table(cellpadding=0,cellspacing=0,border=0)
+    tr
+      td
+        md-input-container
+          input(md-input,placeholder='First name',[(ngModel)]='newuser.firstName')
+      td
+        md-input-container
+          input(md-input,placeholder='Last name',[(ngModel)]='newuser.lastName')
+    tr
+      td(colspan=2)
+        md-input-container(style='width: 100%')
+          input(md-input,placeholder='Email',[(ngModel)]='newuser.email')
+    tr
+      td
+        md-input-container
+          input(md-input,placeholder='Teacher ID',[(ngModel)]='newuser.tchrId')
+      td &nbsp;
 md-dialog-actions
-  button(md-raised-button,md-dialog-close) Close
+  div.btn-container
+    button.btn-cancel(id='btnCancel',md-mini-fab,(click)='btnCancel_Click()')
+      md-icon clear
+    button.btn-ok(id='btnOK',md-fab,(click)='btnOK_Click()')
+      md-icon done

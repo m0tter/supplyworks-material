@@ -17,6 +17,8 @@ export function apiController(): Router {
     });
   });
 
+  router.post('/')
+
   return router;
 }
 

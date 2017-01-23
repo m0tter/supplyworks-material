@@ -1,7 +1,7 @@
 declare module 'supplyworks' {
   export interface Person {
     firstName: string;
-    surname: string;
+    lastName: string;
     email: string;
   }
 
