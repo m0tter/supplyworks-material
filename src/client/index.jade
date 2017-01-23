@@ -17,6 +17,9 @@ html
     script(src='systemjs.config.js')
     script.
       System.import('app').catch(function(err){ console.error(err); });
+    
+    style
+      | body { font-family: Roboto, Arial, sans-serif; }
   
-  body
+  body.md-app-background
     supply-works Loading...

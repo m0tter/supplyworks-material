@@ -1,7 +1,6 @@
-doctype html
-p New User
-p
+h2 New User
+md-dialog-content
   label
     input(#dialogInput)
-p
-  button(md-button,(click)='dialogRef.close(dialogInput.value)') Close
+md-dialog-actions
+  button(md-raised-button,md-dialog-close) Close

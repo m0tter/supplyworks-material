@@ -24,7 +24,7 @@ gulp.task('clean.server', function() {
 
 gulp.task('jade.compile', function() {
   return gulp.src('./src/client/**/*.jade')
-    .pipe(jade({pretty: true}))
+    .pipe(jade({pretty: true, doctype: 'html'}))
     .pipe(gulp.dest('./dist/client'));
 });
 
