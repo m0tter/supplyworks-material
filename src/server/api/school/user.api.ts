@@ -1,5 +1,6 @@
 import { Router, Request, Response } from 'express';
 import { Teacher } from 'supplyworks';
+import * as bparser from 'body-parser';
 
 import { TeacherModel } from '../models/teacher.model';
 
@@ -17,7 +18,12 @@ export function apiController(): Router {
     });
   });
 
-  router.post('/')
+  router.post('/', bparser.json(), (req: Request, res: Response) => {
+    let tchr = new TeacherModel;
+    if( req.body ) {
+      tchr.
+    }
+  })
 
   return router;
 }

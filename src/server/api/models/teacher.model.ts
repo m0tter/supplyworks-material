@@ -2,8 +2,9 @@ import { model, Document, Schema } from 'mongoose';
 
 let TeacherSchema:Schema = new Schema({
   firstName: String,
-  surname: String,
-  email: String
+  lastName: String,
+  email: String,
+  tchrId: String
 });
 
-export var TeacherModel = model('Teacher', TeacherSchema);
+export var TeacherModel = model('TeacherModel', TeacherSchema);
