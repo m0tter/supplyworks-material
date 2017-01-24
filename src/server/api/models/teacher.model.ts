@@ -1,4 +1,6 @@
-import { model, Document, Schema } from 'mongoose';
+import { model, Document, Schema, Model } from 'mongoose';
+import * as mongoose from 'mongoose';
+import { Teacher } from 'supplyworks';
 
 let TeacherSchema:Schema = new Schema({
   firstName: String,
@@ -7,4 +9,5 @@ let TeacherSchema:Schema = new Schema({
   tchrId: String
 });
 
-export var TeacherModel = model('TeacherModel', TeacherSchema);
+export var TeacherModel:Model<TeacherDocument> = model<TeacherDocument>('TeacherModel', TeacherSchema);
+export interface TeacherDocument extends Teacher, Document { }

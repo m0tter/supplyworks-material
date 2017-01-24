@@ -19,9 +19,14 @@ export function apiController(): Router {
   });
 
   router.post('/', bparser.json(), (req: Request, res: Response) => {
-    let tchr = new TeacherModel;
-    if( req.body ) {
-      tchr.
+    let newTchr = new TeacherModel;
+    let data:Teacher = req.body;
+    if( data ) {
+      if( data.firstName )  newTchr.firstName = data.firstName;
+      if( data.lastName )   newTchr.lastName = data.lastName;
+      if( data.email )      newTchr.email = data.email;
+      if( data.schoolId )   newTchr.schoolId = data.schoolId;
+      if( data.tchrId )     newTchr.tchrId = data.tchrId;
     }
   })
 
