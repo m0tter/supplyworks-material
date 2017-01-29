@@ -1,21 +1,22 @@
-h2 New User
+h2(*ngIf='newuser') New User
+h2(*ngIf='!newuser') Edit User
 md-dialog-content
   table(cellpadding=0,cellspacing=0,border=0)
     tr
       td
         md-input-container
-          input(md-input,placeholder='First name',[(ngModel)]='newuser.firstName')
+          input(md-input,placeholder='First name',[(ngModel)]='user.firstName')
       td
         md-input-container
-          input(md-input,placeholder='Last name',[(ngModel)]='newuser.lastName')
+          input(md-input,placeholder='Last name',[(ngModel)]='user.lastName')
     tr
       td(colspan=2)
         md-input-container(style='width: 100%')
-          input(md-input,placeholder='Email',[(ngModel)]='newuser.email')
+          input(md-input,placeholder='Email',[(ngModel)]='user.email')
     tr
       td
         md-input-container
-          input(md-input,placeholder='Teacher ID',[(ngModel)]='newuser.tchrId')
+          input(md-input,placeholder='Teacher ID',[(ngModel)]='user.tchrId')
       td &nbsp;
 md-dialog-actions
   div.btn-container

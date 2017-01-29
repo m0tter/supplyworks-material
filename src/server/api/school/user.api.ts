@@ -1,14 +1,14 @@
-import { Router, Request, Response } from 'express';
-import { Teacher } from 'supplyworks';
-import * as bparser from 'body-parser';
+import { Router, Request, Response }  from 'express';
+import { User }                       from 'supplyworks';
+import * as bparser                   from 'body-parser';
 
-import { TeacherModel } from '../models/teacher.model';
+import { UserModel, UserDocument } from '../models/user.model';
 
 let router:Router = Router();
 
 export function apiController(): Router {
   router.get('/', (req: Request, res: Response) => {
-    TeacherModel.find({'schoolId': '1234'}, (err: any, tchrs: Teacher[]) => {
+    UserModel.find({'schoolId': '1234'}, (err: any, tchrs: User[]) => {
       if(err) this.errorHandler(err, res);
       if(tchrs) {
         res.status(200).json({'success': true, data: tchrs});
@@ -19,18 +19,57 @@ export function apiController(): Router {
   });
 
   router.post('/', bparser.json(), (req: Request, res: Response) => {
-    let newTchr = new TeacherModel;
-    let data:Teacher = req.body;
+    let newUser: UserDocument = new UserModel;
+    let data:User = req.body;
     if( data ) {
-      if( data.firstName )  newTchr.firstName = data.firstName;
-      if( data.lastName )   newTchr.lastName = data.lastName;
-      if( data.email )      newTchr.email = data.email;
-      if( data.schoolId )   newTchr.schoolId = data.schoolId;
-      if( data.tchrId )     newTchr.tchrId = data.tchrId;
+      console.log(data.schoolId);
+      if( data.firstName )  newUser.firstName = data.firstName;
+      if( data.lastName )   newUser.lastName  = data.lastName;
+      if( data.email )      newUser.email     = data.email;
+      if( data.schoolId )   newUser.schoolId  = data.schoolId;
+      if( data.tchrId )     newUser.tchrId    = data.tchrId;
+      newUser.save((err, result) => {
+        if( err ) errorHandler( err, res );
+        res.status(200).json({'success': true, data: result});
+      });
     }
-  })
+  });
+
+  router.delete('/:id', (req: Request, res: Response) => {
+    UserModel.remove({_id: req.params.id}, err => {
+      if(err) this.errorHandler(err, res);
+      else res.status(200).json({'success': true, 'data': req.params.id});
+    });
+  });
+
+  router.put('/:id', bparser.json(), (req: Request, res: Response) => {
+    UserModel.findById(req.params.id, (err, user) => {
+      if( err ) errorHandler(err);
+      else
+        if( req.body ) {
+          modifyUser( user, <User>req.body, ( resp: User ) => { 
+            res.status(200).json({'success': true, 'data': resp})})
+        }
+    });
+  });
 
   return router;
+}
+
+function modifyUser( dbUser: UserDocument, data: User, cb: Function ): void {
+  if( dbUser && data ){
+    if( data.firstName )  dbUser.firstName = data.firstName;
+    if( data.lastName )   dbUser.lastName = data.lastName;
+    if( data.email )      dbUser.email = data.email;
+    if( data.schoolId )   dbUser.schoolId = data.schoolId;
+    if( data.tchrId )     dbUser.tchrId = data.tchrId;
+    dbUser.save( (err, rec) => {
+      if( err ) 
+        errorHandler(err);
+      else
+        if( cb ) cb(rec); 
+    })
+  }
 }
 
 function errorHandler(error: any, response?: Response): void {

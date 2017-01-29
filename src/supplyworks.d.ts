@@ -5,8 +5,17 @@ declare module 'supplyworks' {
     email: string;
   }
 
-  export interface Teacher extends Person {
+  export interface User extends Person {
     tchrId: string
     schoolId: string
+  }
+
+  export interface PersistedUser extends User {
+    _id: string;
+  }
+
+  export interface APIResult {
+    success: boolean;
+    data: any;
   }
 }

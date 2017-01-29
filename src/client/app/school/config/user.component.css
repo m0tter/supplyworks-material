@@ -1,0 +1,36 @@
+.users-container {
+  padding: 20px;
+}
+.users-grid {
+  display: table;
+  border: 1px solid #aaa;
+}
+.users-header {
+  border-bottom: 1px solid #aaa;
+  background-color: #ccc;
+  display: table-row;
+}
+.user {
+  display: table-row;
+}
+[class^="user-"] {
+  display: table-cell;
+  padding: 10px;
+}
+.user-selected {
+  width: 20px;
+}
+.user-name {
+  width: 150px;
+}
+.user-email {
+  width: 250px;
+}
+.user-tchrCode {
+  width: 50px;
+}
+.loading {
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+}
