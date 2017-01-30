@@ -14,8 +14,13 @@ declare module 'supplyworks' {
     _id: string;
   }
 
-  export interface APIResult {
-    success: boolean;
-    data: any;
+  export interface AgreementBase {
+    startDate: Date;
+    rollingStart: boolean;
+    maxLessons: number;
+  }
+
+  export interface Agreement extends AgreementBase {
+    _id: string;
   }
 }

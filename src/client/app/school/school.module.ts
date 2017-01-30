@@ -11,6 +11,7 @@ import { UserService }        from './config/user.service';
 import { AppComponent }       from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent, NewUserComponent } from './config/user.component';
+import { AgreementComponent }  from './config/agreement.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,8 @@ import { UserComponent, NewUserComponent } from './config/user.component';
     AppComponent,
     DashboardComponent,
     UserComponent,
-    NewUserComponent
+    NewUserComponent,
+    AgreementComponent
   ],
   providers: [
     UserService

@@ -16,3 +16,6 @@ nav a:hover {
 nav a.active {
   color: #039be5;
 }
+.active-menu {
+  background-color: #0395e5;
+}
