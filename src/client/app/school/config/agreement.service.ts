@@ -8,15 +8,15 @@ import { Agreement } from 'supplyworks';
 @Injectable()
 export class AgreementService {
 
-  private APIUrl = '/api/school/agreement/';
+  private APIUrl = '/api/school/agreements/';
 
   constructor( private http: Http ) { }
 
   getAgreements(): Promise<Agreement[]> {
-    return this.http.get(this.APIUrl)
+    return this.http.get( this.APIUrl )
       .toPromise()
-      .then(resp => resp.json().data as Agreement[])
-      .catch(err => this.errorHandler(err));
+      .then( resp => { if( resp != null ) return resp.json().data as Agreement[] } )
+      .catch( err => this.errorHandler(err) );
   }
 
   errorHandler(err: any): Promise<any> {

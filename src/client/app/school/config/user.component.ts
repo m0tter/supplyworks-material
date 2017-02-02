@@ -1,8 +1,9 @@
 import { Component, Optional, OnInit }    from '@angular/core';
 import { MdDialog, MdDialogRef }          from '@angular/material';
+import { User }                           from 'supplyworks';
 
-import { UserService }  from './user.service';
-import { User }         from 'supplyworks';
+import { UserService }      from './user.service';
+import { NewUserComponent } from './new-user.component';
 
 interface user extends User { selected: boolean; }
 
@@ -97,41 +98,3 @@ export class UserComponent implements OnInit{
     // TODO display error to user
   }
 }
-
-@Component({
-  selector: 'newuser',
-  templateUrl: 'app/school/config/newUser.component.html',
-  styleUrls: ['app/school/config/newUser.component.css']
-})
-export class NewUserComponent implements OnInit {
-  user: User;
-  newuser = true;
-
-  constructor( @Optional() public dialogRef: MdDialogRef<NewUserComponent> ) { }
-
-  btnOK_Click() {
-    this.dialogRef.close(this.user);
-  }
-
-  btnCancel_Click() {
-    this.dialogRef.close();
-  }
-
-  editUser(user: User){
-    this.user = user;
-    this.newuser = false;
-  }
-
-  ngOnInit() {
-    if( this.user === undefined ){
-      this.user = {
-        firstName: '',
-        lastName: '',
-        tchrId: '',
-        email: '',
-        schoolId: '1234'
-      };
-    }
-  }
-
- }

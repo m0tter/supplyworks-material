@@ -30,7 +30,10 @@ export class UserService {
     let u = <PersistedUser>user;
     return this.http.delete( this.APIUrl + u._id )
       .toPromise()
-      .then( resp => { if(resp.json().data === u._id) return true; } )
+      .then( resp => { 
+        if(resp.json().data === u._id) return true; 
+        else 
+          throw new EvalError('failed to delete user, returned _id did not match'); } )
       .catch( err => this.errorHandler(err) );
   }
 
