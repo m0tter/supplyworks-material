@@ -15,6 +15,8 @@ declare module 'supplyworks' {
   }
 
   export interface AgreementBase {
+    name: string;
+    description: string;
     startDate: Date;
     rollingStart: boolean;
     maxLessons: number;

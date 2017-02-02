@@ -51,6 +51,8 @@ export class AgreementAPI {
 
   private modifyAgmt( dbAgmt: AgreementDocument, data: Agreement, cb: Function): void {
     if( dbAgmt && data ){
+      if( data.name )         dbAgmt.name         = data.name;
+      if( data.description )  dbAgmt.description  = data.description;
       if( data.maxLessons )   dbAgmt.maxLessons   = data.maxLessons;
       if( data.rollingStart ) dbAgmt.rollingStart = data.rollingStart;
       if( data.startDate )    dbAgmt.startDate    = data.startDate;
