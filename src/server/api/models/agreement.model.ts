@@ -6,7 +6,8 @@ let AgreementSchema = new Schema({
   description: String,
   startDate: Schema.Types.Date,
   rollingStart: Schema.Types.Boolean,
-  maxLessons: Schema.Types.Boolean
+  maxLessons: Schema.Types.Boolean,
+  schoolId: String
 });
 
 export interface AgreementDocument extends AgreementBase, Document { }

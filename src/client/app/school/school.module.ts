@@ -14,6 +14,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent }      from './config/user.component';
 import { NewUserComponent }   from './config/new-user.component';
 import { AgreementComponent }  from './config/agreement.component';
+import { NewAgreementComponent } from './config/new-agreement.component';
 
 @NgModule({
   imports: [
@@ -28,13 +29,17 @@ import { AgreementComponent }  from './config/agreement.component';
     DashboardComponent,
     UserComponent,
     NewUserComponent,
-    AgreementComponent
+    AgreementComponent,
+    NewAgreementComponent
   ],
   providers: [
     UserService,
     AgreementService
   ],
   bootstrap: [ AppComponent ],
-  entryComponents: [ NewUserComponent ]
+  entryComponents: [ 
+    NewUserComponent,
+    NewAgreementComponent 
+  ]
 })
 export class SchoolModule { }

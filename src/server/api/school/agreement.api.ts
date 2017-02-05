@@ -56,6 +56,7 @@ export class AgreementAPI {
       if( data.maxLessons )   dbAgmt.maxLessons   = data.maxLessons;
       if( data.rollingStart ) dbAgmt.rollingStart = data.rollingStart;
       if( data.startDate )    dbAgmt.startDate    = data.startDate;
+      if( data.schoolId )     dbAgmt.schoolId     = data.schoolId;
       dbAgmt.save( (err, rec) => {
         if( err ) this.errorHandler( err );
         else if( cb ) cb( rec );

@@ -1,20 +1,18 @@
 div(style='padding-top: 20px')
-  button(md-raised-button,type='button',(click)='BtnNew_Clicked()') New
-  button(md-raised-button,type='button',(click)='BtnDelete_Clicked()',[disabled]='btnDeleteDisabled') Delete
-  button(md-raised-button,type='button',(click)='BtnEdit_Clicked()',[disabled]='btnEditDisabled') Edit
+  button(md-raised-button,type='button',(click)='btnNew_Clicked()') New
+  button(md-raised-button,type='button',(click)='btnDelete_Clicked()',[disabled]='btnDeleteDisabled') Delete
+  button(md-raised-button,type='button',(click)='btnEdit_Clicked()',[disabled]='btnEditDisabled') Edit
   div.loading(*ngIf='showLoading')
     md-spinner.loading
 
 div.container
   div.grid
     div.header
-      div.user-select &nbsp;
-      div.user-name Name
-      div.user-email Email
-      div.user-tchrcode Code
-    div.user(*ngFor='let user of users; let i=index')
-      div.user-select
-        md-checkbox((click)='UserSelected_Clicked(i)')
-      div.user-name {{user.firstName}} {{user.lastName}}
-      div.user-email {{user.email}}
-      div.user-tchrcode {{user.tchrId}}
+      div.agmt-select &nbsp;
+      div.agmt-name Name
+      div.agmt-desc Description
+    div.agmt(*ngFor='let agmt of agreements; let i=index')
+      div.agmt-select
+        md-checkbox((click)='chkSelected_Clicked(i)')
+      div.agmt-name {{agmt.name}}
+      div.agmt-desc {{agmt.description}}
