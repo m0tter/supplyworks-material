@@ -24,7 +24,8 @@
   width: 150px;
 }
 .agmt-desc {
-  width: 250px;
+  width: 350px;
+  overflow: hidden;
 }
 .loading {
   height: 30px;
