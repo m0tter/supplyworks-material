@@ -1,11 +1,13 @@
-h2(*ngIf='newAgreement') New Agreement
-h2(*ngIf='!newAgreement') Edit Agreement
 md-dialog-content
-  md-input-container.width-100
-    input(md-input,placeholder='Name',[(ngModel)]='agmt.name')
+  md-tab-group
+    md-tab(label='General')
+      md-input-container.width-100
+        input(md-input,placeholder='Name',[(ngModel)]='agmt.name')
 
-  md-input-container.width-100
-    textarea(md-input,placeholder='Description',[(ngModel)]='agmt.description')
+      md-input-container.width-100
+        textarea(md-input,placeholder='Description',[(ngModel)]='agmt.description')
+    md-tab(label='Options')
+    md-tab(label='Members')
     
 md-dialog-actions
   div.btn-container

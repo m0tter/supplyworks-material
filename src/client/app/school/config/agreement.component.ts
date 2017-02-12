@@ -36,7 +36,7 @@ export class AgreementComponent implements OnInit {
   }
 
   btnNew_Clicked():void {
-    let dialogRef = this.dialog.open(NewAgreementComponent);
+    let dialogRef = this.dialog.open(NewAgreementComponent, { height: '400px', width: '600px' });
     dialogRef.afterClosed().subscribe( agmt => {
       if( agmt ) {
         this.agreementService.createAgreement( agmt )
