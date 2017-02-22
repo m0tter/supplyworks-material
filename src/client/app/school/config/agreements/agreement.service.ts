@@ -19,6 +19,11 @@ export class AgreementService {
       .catch( err => { return this.errorHandler(err); } );
   }
 
+  getAgreement(id: string): Promise<Agreement> {
+    return this.getAgreements()
+      .then( agreements => agreements.find( agreement => agreement._id === id ));
+  }
+
   createAgreement(agmt: Agreement): Promise<Agreement> {
     return this.http.post( this.APIUrl, agmt )
       .toPromise()
