@@ -7,14 +7,14 @@ import { FormsModule }    from '@angular/forms';
 import { AppRoutingModule }   from './app.routing';
 
 import { UserService }        from './config/user.service';
-import { AgreementService }   from './config/agreement.service';
+import { AgreementService }   from './config/agreements/agreement.service';
 
-import { AppComponent }       from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserComponent }      from './config/user.component';
-import { NewUserComponent }   from './config/new-user.component';
-import { AgreementComponent }  from './config/agreement.component';
-import { NewAgreementComponent } from './config/new-agreement.component';
+import { AppComponent }             from './app.component';
+import { DashboardComponent }       from './dashboard/dashboard.component';
+import { UserComponent }            from './config/user.component';
+import { NewUserComponent }         from './config/new-user.component';
+import { AgreementsComponent }      from './config/agreements/agreements.component';
+import { AgreementDetailComponent } from './config/agreements/agreement-detail.component';
 
 @NgModule({
   imports: [
@@ -29,8 +29,8 @@ import { NewAgreementComponent } from './config/new-agreement.component';
     DashboardComponent,
     UserComponent,
     NewUserComponent,
-    AgreementComponent,
-    NewAgreementComponent
+    AgreementsComponent,
+    AgreementDetailComponent
   ],
   providers: [
     UserService,
