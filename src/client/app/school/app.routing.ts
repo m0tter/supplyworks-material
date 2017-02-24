@@ -9,8 +9,9 @@ const appRoutes:Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
     { path: 'dashboard', component: DashboardComponent },
     { path: 'users', component: UserComponent },
-    { path: 'agreements', component: AgreementsComponent },
-    { path: 'detail/:id', component: AgreementDetailComponent }
+    { path: 'agreements', component: AgreementsComponent, children: [
+        { path: 'detail/:id', component: AgreementDetailComponent }
+    ]}
 ];
 
 export const AppRoutingModule = RouterModule.forRoot(appRoutes);

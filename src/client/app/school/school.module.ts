@@ -12,7 +12,6 @@ import { AgreementService }   from './config/agreements/agreement.service';
 import { AppComponent }             from './app.component';
 import { DashboardComponent }       from './dashboard/dashboard.component';
 import { UserComponent }            from './config/user.component';
-import { NewUserComponent }         from './config/new-user.component';
 import { AgreementsComponent }      from './config/agreements/agreements.component';
 import { AgreementDetailComponent } from './config/agreements/agreement-detail.component';
 
@@ -28,7 +27,6 @@ import { AgreementDetailComponent } from './config/agreements/agreement-detail.c
     AppComponent,
     DashboardComponent,
     UserComponent,
-    NewUserComponent,
     AgreementsComponent,
     AgreementDetailComponent
   ],
@@ -38,8 +36,6 @@ import { AgreementDetailComponent } from './config/agreements/agreement-detail.c
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ 
-    NewUserComponent,
-    NewAgreementComponent 
   ]
 })
 export class SchoolModule { }

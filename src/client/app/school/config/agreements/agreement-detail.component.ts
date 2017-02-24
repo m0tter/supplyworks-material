@@ -18,6 +18,7 @@ interface IAgreement extends Agreement {
 })
 export class AgreementDetailComponent implements OnInit {
   private agreement: IAgreement;
+  private isNew: boolean;
 
   constructor(
     private agreementService: AgreementService,
@@ -34,6 +35,7 @@ export class AgreementDetailComponent implements OnInit {
       this.route.params
         .switchMap( (params: Params) => this.agreementService.getAgreement(params['id']) )
         .subscribe( agreement => this.agreement = <IAgreement>agreement );
+      this.isNew = false;
     } else {
       this.agreement = {
         name: '',
@@ -45,6 +47,7 @@ export class AgreementDetailComponent implements OnInit {
         startDate: new Date(),
         _id: ''
       }
+      this.isNew = true;
     }
   }
 }

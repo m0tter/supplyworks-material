@@ -1,6 +1,6 @@
-import { Component, OnInit }  from '@angular/core';
-import { Router }             from '@angular/router';
-import { Agreement }          from 'supplyworks';
+import { Component, OnInit }      from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Agreement }              from 'supplyworks';
 
 import { AgreementService }   from './agreement.service';
 
@@ -20,7 +20,8 @@ export class AgreementsComponent implements OnInit {
 
   constructor( 
     private agreementService: AgreementService,
-    private router: Router 
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   getAgreements(): void {
@@ -40,11 +41,11 @@ export class AgreementsComponent implements OnInit {
   }
 
   btnNew_Clicked(): void {
-    this.router.navigate(['/detail/0']);
+    this.router.navigate(['detail/0'], { relativeTo: this.route });
   }
 
   btnEdit_Clicked(): void {
-    this.router.navigate(['/detail/', this.selected._id])
+    this.router.navigate(['/agreements/detail/', this.selected._id])
   }
 
   chkSelected_Click($index: number): void {
