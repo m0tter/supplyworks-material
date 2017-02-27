@@ -7,16 +7,17 @@ import { AgreementService }   from './agreement.service';
 interface IAgreement extends Agreement { selected: boolean; }
 
 @Component({
+  moduleId: module.id,
   selector: 'agreements',
-  templateUrl: 'app/school/config/agreements/agreements.component.html',
-  styleUrls: ['app/school/config/agreements/agreements.component.css']
+  templateUrl: 'agreements.component.html',
+  styleUrls: ['agreements.component.css']
 })
 export class AgreementsComponent implements OnInit {
   private agreements: IAgreement[];
   private selected: IAgreement;
   private showLoading = false;
-  private editEnabled = false;
-  private deleteEnabled = false;
+  private editDisabled = true;
+  private deleteDisabled = true;
 
   constructor( 
     private agreementService: AgreementService,
@@ -41,14 +42,14 @@ export class AgreementsComponent implements OnInit {
   }
 
   btnNew_Clicked(): void {
-    this.router.navigate(['detail/0'], { relativeTo: this.route });
+    this.router.navigate(['new'], { relativeTo: this.route });
   }
 
   btnEdit_Clicked(): void {
-    this.router.navigate(['/agreements/detail/', this.selected._id])
+    this.router.navigate([this.selected._id], { relativeTo: this.route });
   }
 
-  chkSelected_Click($index: number): void {
+  chkSelected_Clicked($index: number): void {
     this.agreements[$index].selected = !this.agreements[$index].selected;
     this.checkButtons();
   }
@@ -60,14 +61,14 @@ export class AgreementsComponent implements OnInit {
   }
 
   checkButtons(): void {
-    this.editEnabled = false;
-    this.deleteEnabled = false;
+    this.editDisabled = true;
+    this.deleteDisabled = true;
     if( this.agreements ){
-      let count = this.agreements.filter( agreement => agreement.selected ).length;
-      if( count ) this.deleteEnabled = true;
-      if( count === 1 ) {
-        this.selected = this.agreements.find( agreement => agreement.selected )[0];
-        this.editEnabled = true;
+      let agreements = this.agreements.filter( agreement => agreement.selected );
+      if( agreements.length ) this.deleteDisabled = false;
+      if( agreements.length === 1 ) {
+        this.selected = agreements[0];
+        this.editDisabled = false;
       }
     }
   }

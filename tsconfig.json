@@ -4,6 +4,7 @@
         "target": "es5",
         "noImplicitAny": true,
         "sourceMap": true,
+        "baseUrl": ".",
         "moduleResolution": "node",
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
@@ -11,6 +12,9 @@
             "es2015",
             "dom"
         ],
+        "paths": {
+            "errorService": ["src/client/school/error.service"]
+        },
         "removeComments": false,
         "suppressImplicitAnyIndexErrors": true,
         "rootDir": "./src",

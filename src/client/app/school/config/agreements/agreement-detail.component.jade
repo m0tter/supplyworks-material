@@ -1,2 +1,14 @@
 h2(*ngIf="isNew") New Agreement
 h2(*ngIf="!isNew") Edit Agreement
+
+div(*ngIf="agreement")
+  form.agreement-form
+    md-input-container
+      input(md-input,placeholder="Name",([ngModel])="agreement.name")
+    md-input-container
+      input(md-input,placeholder="Description",([ngModel])="agreement.description")
+
+div.buttons
+  button(md-raised-button,type='button',(click)='btnSave_Clicked()') Save
+  button(md-raised-button,type='button',(click)='btnCancel_Clicked()') Cancel
+

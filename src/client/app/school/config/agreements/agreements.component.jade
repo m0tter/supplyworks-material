@@ -1,7 +1,7 @@
 div.container
   button(md-raised-button,type='button',(click)='btnNew_Clicked()') New
-  button(md-raised-button,type='button',(click)='btnDelete_Clicked()',[disabled]='btnDeleteDisabled') Delete
-  button(md-raised-button,type='button',(click)='btnEdit_Clicked()',[disabled]='btnEditDisabled') Edit
+  button(md-raised-button,type='button',(click)='btnDelete_Clicked()',[disabled]='deleteDisabled') Delete
+  button(md-raised-button,type='button',(click)='btnEdit_Clicked()',[disabled]='editDisabled') Edit
   div.loading(*ngIf='showLoading')
     md-spinner.loading
 
@@ -16,5 +16,3 @@ div.container
         md-checkbox((click)='chkSelected_Clicked(i)')
       div.agmt-name {{agmt.name}}
       div.agmt-desc {{agmt.description}}
-
-router-outlet

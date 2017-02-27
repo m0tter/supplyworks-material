@@ -8,6 +8,7 @@ import { AppRoutingModule }   from './app.routing';
 
 import { UserService }        from './config/user.service';
 import { AgreementService }   from './config/agreements/agreement.service';
+import { ErrorService }       from './error.service';
 
 import { AppComponent }             from './app.component';
 import { DashboardComponent }       from './dashboard/dashboard.component';
@@ -32,7 +33,8 @@ import { AgreementDetailComponent } from './config/agreements/agreement-detail.c
   ],
   providers: [
     UserService,
-    AgreementService
+    AgreementService,
+    ErrorService
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ 
